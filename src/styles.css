@@ -68,6 +68,15 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @utility font-display {
   font-family: var(--font-display);
   font-feature-settings: "ss01";

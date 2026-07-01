@@ -96,6 +96,45 @@ const languages = [
   ["Croatian", "A2"],
 ];
 
+function Marquee() {
+  const phrases = [
+    "LLM BACKEND ENGINEER",
+    "THESSALONIKI",
+    "HIRE ME PLEASE",
+    "CONVERSATIONAL AI",
+    "PROXMOX HOMELAB",
+    "SGA PRESIDENT",
+    "PYTHON · NODE.JS · C#",
+    "AVAILABLE FOR WORK",
+  ];
+  const sep = (
+    <span className="mx-6 text-[color:var(--accent)]" aria-hidden>
+      ◆
+    </span>
+  );
+  const content = (
+    <>
+      {phrases.map((p, i) => (
+        <span key={i} className="whitespace-nowrap">
+          {p}
+          {sep}
+        </span>
+      ))}
+    </>
+  );
+  return (
+    <div className="overflow-hidden border-t border-[color:var(--line)] bg-[color:var(--bg)]/60 py-1.5">
+      <div
+        className="flex w-max font-display text-[10px] font-bold uppercase tracking-[0.25em] text-[color:var(--muted)]"
+        style={{ animation: "marquee 24s linear infinite" }}
+      >
+        {content}
+        {content}
+      </div>
+    </div>
+  );
+}
+
 function Nav() {
   const items = [
     ["Now", "#now"],
@@ -126,6 +165,7 @@ function Nav() {
           ))}
         </nav>
       </div>
+      <Marquee />
     </header>
   );
 }
