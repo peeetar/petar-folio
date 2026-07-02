@@ -1,6 +1,5 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -39,10 +38,10 @@
 
 :root {
   --bg: oklch(0.14 0.01 260);
-  --fg: oklch(0.97 0.005 260);
+  --fg: floralwhite;
   --muted: oklch(0.62 0.01 260);
   --line: oklch(1 0 0 / 10%);
-  --accent: oklch(0.72 0.16 32); /* warm crimson-red */
+  --accent: cornflowerblue;
   --dot: oklch(1 0 0 / 6%);
 }
 

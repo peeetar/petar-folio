@@ -16,32 +16,30 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Homelab & Network Infrastructure",
+    descriptor: "Self-hosted Proxmox cluster — the thing I actually spend my free time on",
+    tags: ["Proxmox", "Networking", "Linux", "Tailscale", "Self-hosting"],
+    body: "My personal Proxmox VE cluster, built and broken and rebuilt more times than I can count. It hosts a CRM with Telegram briefings, a photo archive (Immich), a Minecraft server, and an AI agent pipeline, all wired together over LXC networking and Tailscale for remote access. Most of what I know about networking and system architecture came from debugging this thing at 2am — DNS resolution issues, container routing, storage quirks, all of it.",
+  },
+  {
     name: "Cardiology AI Agent",
-    descriptor:
-      "Conversational health agent with LLM backend — Anatolia × AUTH joint project",
-    tags: ["Python", "LLM APIs", "NLP", "Healthcare AI"],
+    descriptor: "Conversational health agent — Anatolia × AUTH joint project",
+    tags: ["Python", "LLM APIs", "Healthcare AI"],
     status: "IN PROGRESS",
-    body: "Building the LLM backend for a conversational AI health assistant developed jointly by American College of Thessaloniki and Aristotle University. The agent handles patient-facing dialogue in a cardiology context. Focused on prompt engineering, retrieval pipelines, and safe output handling.",
+    body: "This is my first real AI project, and I'm learning a lot of it on the job. I'm working on the backend for a conversational health assistant built jointly by American College of Thessaloniki and Aristotle University, handling patient-facing dialogue in a cardiology context. Still very much figuring out prompt design, retrieval, and how to keep the output safe — happy to talk through what I've learned so far.",
   },
   {
     name: "NorthEuraLex Language Classifier",
-    descriptor: "MLP model classifying 5 languages from phonological data",
-    tags: ["Python", "scikit-learn", "NLP", "ML"],
-    body: "Trained a multi-layer perceptron on the NorthEuraLex dataset to classify Croatian, Greek, Turkish, Russian, and German from lexical features. Achieved 95.6% accuracy. Explored cross-linguistic phonological patterns as part of an AI/ML course project.",
-  },
-  {
-    name: "Homelab & Automation Infrastructure",
-    descriptor:
-      "Self-hosted Proxmox cluster with AI agents, CRM, and remote access",
-    tags: ["Proxmox", "Linux", "Node.js", "Tailscale", "Self-hosting"],
-    body: "Running a personal Proxmox VE homelab hosting an AI agent pipeline (OpenClaw), personal CRM with Telegram briefings, Immich photo archive, and a Minecraft server. Managed via Tailscale for remote access. Built and debugged from scratch including LXC networking and DNS resolution.",
+    descriptor: "My first ML project — classifying 5 languages from word data",
+    tags: ["Python", "scikit-learn", "NLP"],
+    body: "A course project where I trained a small neural network (an MLP) to guess whether a word was Croatian, Greek, Turkish, Russian, or German, based on the NorthEuraLex dataset. I didn't know much about NLP going in — this was mostly trial, error, and reading a lot of documentation. Landed at 95.6% accuracy, which felt like a small miracle at the time.",
   },
   {
     name: "velkovski.xyz",
-    descriptor: "Personal site — Astro, Cloudflare Pages",
-    tags: ["Astro", "Cloudflare", "HTML/CSS"],
+    descriptor: "Personal site — built on TanStack Start, hosted on Cloudflare Pages",
+    tags: ["TanStack Start", "Cloudflare", "React"],
     link: { href: "https://velkovski.xyz", label: "velkovski.xyz" },
-    body: "This site. Rebuilt from scratch for Voxxed Days Thessaloniki 2026. Fast, static, no frameworks bloat.",
+    body: "This site. Rebuilt from scratch for Voxxed Days Thessaloniki 2026. Fast, no unnecessary framework bloat, no dead code — just the stuff I actually needed.",
   },
 ];
 
@@ -50,7 +48,7 @@ const experience = [
     role: "LLM Backend Engineer",
     org: "Anatolia × AUTH Cardiology Project",
     meta: "Aug 2026 – present · Thessaloniki",
-    body: "Owning the LLM backend for a patient-facing cardiology assistant. Prompt architecture, retrieval, evaluation, and safety guardrails.",
+    body: "Working on the backend for a patient-facing cardiology assistant — prompt design, retrieval, evaluation, and safety guardrails. My first professional AI role, learning a lot of it as I go.",
   },
   {
     role: "SGA President",
@@ -73,18 +71,18 @@ const experience = [
 ];
 
 const skillsRow = [
-  "AI & LLM",
-  "Python",
-  "NLP",
+  "Homelab",
   "Proxmox",
+  "Networking",
   "Linux",
+  "Self-hosting",
+  "Systems Architecture",
+  "Python",
+  "AI & LLM",
   "Node.js",
-  "Astro",
-  "C# / .NET",
   "Git",
   "Cloudflare",
-  "Systems Administration",
-  "Self-hosting",
+  "C# / .NET",
 ];
 
 const languages = [
@@ -98,13 +96,14 @@ const languages = [
 
 function Marquee() {
   const phrases = [
-    "LLM BACKEND ENGINEER",
+    "HOMELAB ENTHUSIAST",
     "THESSALONIKI",
     "HIRE ME PLEASE",
-    "CONVERSATIONAL AI",
-    "PROXMOX HOMELAB",
+    "RUNS ON COFFEE & YAML",
+    "ASK ME ABOUT MY PROXMOX CLUSTER",
     "SGA PRESIDENT",
-    "PYTHON · NODE.JS · C#",
+    "MY UPTIME > MY SLEEP SCHEDULE",
+    "SERIOUSLY, HIRE ME",
     "AVAILABLE FOR WORK",
   ];
   const sep = (
@@ -173,11 +172,7 @@ function Nav() {
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-8 flex items-center gap-3">
-      <span
-        className="h-px w-8"
-        style={{ background: "var(--accent)" }}
-        aria-hidden
-      />
+      <span className="h-px w-8" style={{ background: "var(--accent)" }} aria-hidden />
       <span className="font-display text-xs font-bold uppercase tracking-[0.3em] text-[color:var(--muted)]">
         {children}
       </span>
@@ -195,10 +190,7 @@ function Section({
   className?: string;
 }) {
   return (
-    <section
-      id={id}
-      className={`mx-auto w-full max-w-6xl px-5 py-24 md:py-32 ${className}`}
-    >
+    <section id={id} className={`mx-auto w-full max-w-6xl px-5 py-24 md:py-32 ${className}`}>
       {children}
     </section>
   );
@@ -230,9 +222,7 @@ function Accordion({
         aria-expanded={open}
       >
         <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h3 className="font-display text-2xl font-bold leading-tight md:text-3xl">
-            {title}
-          </h3>
+          <h3 className="font-display text-2xl font-bold leading-tight md:text-3xl">{title}</h3>
           <span
             className="font-display text-xs uppercase tracking-widest text-[color:var(--muted)] transition-colors duration-200 group-hover:text-[color:var(--accent)]"
             aria-hidden
@@ -240,13 +230,9 @@ function Accordion({
             {open ? "Close −" : "Expand ↓"}
           </span>
         </div>
-        {meta && (
-          <div className="text-sm text-[color:var(--muted)]">{meta}</div>
-        )}
+        {meta && <div className="text-sm text-[color:var(--muted)]">{meta}</div>}
         {descriptor && (
-          <p className="max-w-3xl text-base text-[color:var(--fg)]/85">
-            {descriptor}
-          </p>
+          <p className="max-w-3xl text-base text-[color:var(--fg)]/85">{descriptor}</p>
         )}
         {(tags || status) && (
           <div className="mt-1 flex flex-wrap items-center gap-2">
@@ -325,9 +311,9 @@ function Index() {
             Velkovski
           </h1>
           <p className="mt-8 text-base text-[color:var(--muted)] md:text-xl">
-            <span className="text-[color:var(--fg)]">LLM Backend</span>
+            <span className="text-[color:var(--fg)]">Homelab & Networks</span>
             <span className="mx-2 text-[color:var(--accent)]">·</span>
-            AI Systems
+            Systems Architecture
             <span className="mx-2 text-[color:var(--accent)]">·</span>
             Thessaloniki
           </p>
@@ -359,11 +345,10 @@ function Index() {
       <Section id="now">
         <Eyebrow>Now</Eyebrow>
         <p className="font-display text-2xl leading-snug md:text-4xl">
-          Building the LLM backend for a conversational AI health agent —{" "}
-          <span style={{ color: "var(--accent)" }}>
-            Anatolia × AUTH Cardiology Project
-          </span>{" "}
-          (Aug 2026 – present).
+          Running my Proxmox homelab, learning networking and systems architecture the hard way, and
+          working on my first real AI project —{" "}
+          <span style={{ color: "var(--accent)" }}>Anatolia × AUTH Cardiology Project</span> (Aug
+          2026 – present).
         </p>
         <p className="mt-6 max-w-3xl text-lg text-[color:var(--muted)] md:text-xl">
           SGA President, American College of Thessaloniki (2026–27).
@@ -399,11 +384,7 @@ function Index() {
           {skillsRow.map((s, i) => (
             <span key={s} className="inline">
               <span
-                className={
-                  i % 3 === 1
-                    ? "text-[color:var(--muted)]"
-                    : "text-[color:var(--fg)]"
-                }
+                className={i % 3 === 1 ? "text-[color:var(--muted)]" : "text-[color:var(--fg)]"}
               >
                 {s}
               </span>
@@ -491,8 +472,8 @@ function Index() {
             <Pill href="https://github.com/peeetar">GitHub</Pill>
           </div>
           <p className="max-w-2xl pt-6 text-sm text-[color:var(--muted)]">
-            Available for internships, part-time roles, and project
-            collaborations in Thessaloniki and remote.
+            Available for internships, part-time roles, and project collaborations in Thessaloniki
+            and remote.
           </p>
         </div>
       </Section>

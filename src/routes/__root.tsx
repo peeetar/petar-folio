@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -81,23 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Petar Velkovski — Business Computing student and LLM backend engineer in Thessaloniki. Projects, experience, and contact.",
+          "Petar Velkovski — Business Computing student in Thessaloniki. Homelab enthusiast, into networks and systems architecture, currently learning AI on a real project.",
       },
       { name: "author", content: "Petar Velkovski" },
       { property: "og:title", content: "Petar Velkovski — CS Student Portfolio" },
       {
         property: "og:description",
         content:
-          "LLM backend engineer based in Thessaloniki. Building conversational AI, homelab infra, and language ML.",
+          "Business Computing student in Thessaloniki. Homelab, networks, and systems architecture — plus my first real AI projects.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Petar Velkovski — CS Student Portfolio" },
-      { name: "description", content: "A personal portfolio website showcasing Petar Velkovski's skills as a Business Computing student and LLM backend engineer." },
-      { property: "og:description", content: "A personal portfolio website showcasing Petar Velkovski's skills as a Business Computing student and LLM backend engineer." },
-      { name: "twitter:description", content: "A personal portfolio website showcasing Petar Velkovski's skills as a Business Computing student and LLM backend engineer." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/36b725b2-dff0-4d0f-8f25-e91b2ab25f8b/id-preview-64767faa--62d5fbe0-931d-4c02-9b9f-b1c8735be219.lovable.app-1782922518110.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/36b725b2-dff0-4d0f-8f25-e91b2ab25f8b/id-preview-64767faa--62d5fbe0-931d-4c02-9b9f-b1c8735be219.lovable.app-1782922518110.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
