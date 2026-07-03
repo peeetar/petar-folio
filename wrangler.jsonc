@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "petar-folio",
+  "compatibility_date": "2026-07-01",
+  // Required: the SSR bundle imports Node built-ins (node:stream,
+  // node:async_hooks, node:stream/web) via @tanstack/react-router's
+  // streaming SSR renderer. Without this flag the Worker throws at runtime.
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": "dist/client"
+}

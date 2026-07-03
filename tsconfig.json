@@ -5,9 +5,7 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    // remove explicit vite/client types to avoid "Cannot find type definition file for 'vite/client'" error
-    // letting TypeScript resolve types automatically
-    "types": [],
+    "types": ["vite/client"],
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
