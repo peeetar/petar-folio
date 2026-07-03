@@ -76,6 +76,13 @@
   }
 }
 
+/* Pause scrolling ticker on hover or focus for readability */
+.marquee-wrap:hover .marquee-track,
+.marquee-wrap:focus-within .marquee-track,
+.marquee-wrap:focus .marquee-track {
+  animation-play-state: paused;
+}
+
 @utility font-display {
   font-family: var(--font-display);
   font-feature-settings: "ss01";
