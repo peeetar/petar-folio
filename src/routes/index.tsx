@@ -122,9 +122,15 @@ function Marquee() {
     </>
   );
   return (
-    <div className="overflow-hidden border-t border-[color:var(--line)] bg-[color:var(--bg)]/60 py-1.5">
+    <div
+      className="marquee-wrap overflow-hidden border-t border-[color:var(--line)] bg-[color:var(--bg)]/60 py-1.5"
+      tabIndex={0}
+      role="marquee"
+      aria-label="Scrolling highlights"
+      aria-roledescription="marquee"
+    >
       <div
-        className="flex w-max font-display text-[10px] font-bold uppercase tracking-[0.25em] text-[color:var(--muted)]"
+        className="marquee-track flex w-max font-display text-[10px] font-bold uppercase tracking-[0.25em] text-[color:var(--muted)]"
         style={{ animation: "marquee 24s linear infinite" }}
       >
         {content}
