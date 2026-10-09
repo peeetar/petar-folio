@@ -143,7 +143,8 @@ h1,h2,h3{text-wrap:balance;margin:0;font-weight:400}
 .titled{display:flex;align-items:flex-end;gap:clamp(12px,2vw,28px);min-width:0}
 .titled > :first-child{min-width:0}
 .inline-card{flex:none;height:var(--mh,1em);max-height:min(46vw,420px);width:auto;max-width:none}
-.bleed-right{margin-left:auto;margin-right:calc((100% - var(--vw,100vw)) / 2)}
+.bleed-right{margin-left:auto;margin-right:0}
+.head-card .inline-card{--mb:clamp(36px,6vw,72px);height:calc(var(--mh,1em) + var(--mb) * 2);margin-bottom:calc(var(--mb) * -1);max-height:min(70vw,560px)}
 .c-row{display:flex;align-items:flex-end;gap:clamp(20px,3vw,48px)}
 .c-row > .c-grid{flex:1;min-width:0}
 .c-row .inline-card{max-height:min(60vw,560px)}
