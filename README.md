@@ -1,25 +1,23 @@
 # petar-folio
 
-This is the source code for my personal site, [velkovski.xyz](https://velkovski.xyz). I needed a new, more modular and flexible design than what I previously had. This project was built using Lovable and other AI-assisted tools.
+Source for my personal site, [velkovski.xyz](https://velkovski.xyz).
 
-## The stack
+The old version was a Lovable-built TanStack Start app. That was a lot of framework for one page, so this version is plain HTML, CSS and a bit of JavaScript in `site/index.html`, plus a few SVGs in `site/assets/`. No dependencies, nothing to update.
 
-Lovable set this up on TanStack Start with React 19, Tailwind v4 and Vite, and it turned out to be what I needed. 
+The engravings (the tarot cards, the lamp, the ornaments) are old public-domain prints I traced to SVG and recolour with CSS masks, so they follow the palette.
 
 ## Running it locally
 
-You will need Bun. Then:
-
 ```bash
-bun install
-bun run dev
+npm run dev      # serves site/ on localhost
 ```
 
-`bun run build` makes the production build, and the output goes to `dist/client` — that is what Cloudflare Pages serves. There is also `bun run lint` and `bun run format` if you want the diffs to stay clean.
+Or just open `site/index.html` in a browser.
 
-## Structure
+## Deploying
 
-Everything that matters is in `src/routes`. `__root.tsx` has the document shell plus the 404 and error pages, and `index.tsx` is the whole portfolio — projects, experience, skills, languages.
+Cloudflare Pages runs `npm run build` (or `bun run build`), which copies `site/` into `dist/client`. That folder is what gets served, same as before, so the Pages settings didn't need to change.
+
 ---
 
 Petar Velkovski — [velkovski.xyz](https://velkovski.xyz)
